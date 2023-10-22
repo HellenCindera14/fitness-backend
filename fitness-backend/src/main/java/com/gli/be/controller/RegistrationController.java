@@ -40,6 +40,7 @@ public class RegistrationController {
     @PostMapping({ "", "/" })
     @ApiOperation("Registration New User")
     public ResponseEntity<Object> saveUser(@RequestBody UserReistrationRequest user) {
+        System.out.println("masuk sini 1");
         UserFitness us = userService.getUserByEmail(user.getEmail());
         if (us != null)
             return new ResponseEntity<>("Gagal Regis. cobalah menggunakan email lain", HttpStatus.CONFLICT);
@@ -51,6 +52,7 @@ public class RegistrationController {
         uf.setTelphoneNumber(user.getTelphoneNumber());
         uf.setStatus(Status.BELUM_TERVALIDASI);
         uf.setOtp(generateOTP(4));
+        System.out.println("masuk sini 1");
         UserFitness u = userService.save(uf);
 
         CreditCard cc = new CreditCard();

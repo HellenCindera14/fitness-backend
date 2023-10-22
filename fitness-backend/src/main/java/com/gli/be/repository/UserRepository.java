@@ -1,5 +1,7 @@
 package com.gli.be.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,6 +10,7 @@ import com.gli.be.entity.UserFitness;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserFitness, Long> {
+    Optional<UserFitness> findByEmail(String email);
 
     @Query(value = "SELECT * FROM User_Fitness p WHERE p.name = :name", nativeQuery = true)
     UserFitness getUserByName(String name);
@@ -23,5 +26,9 @@ public interface UserRepository extends JpaRepository<UserFitness, Long> {
 
     @Query(value = "SELECT * FROM User_Fitness p WHERE p.email = :email and p.otp = :otp", nativeQuery = true)
     UserFitness getByEmailAndOtp(String email, String otp);
+    
+
+
+
 
 }

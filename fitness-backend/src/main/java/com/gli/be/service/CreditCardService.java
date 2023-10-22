@@ -8,7 +8,7 @@ import com.gli.be.repository.CreditCardRepository;
 
 @Service
 public class CreditCardService {
-
+  
     @Autowired
     CreditCardRepository ccRepository;
 
@@ -16,18 +16,5 @@ public class CreditCardService {
         return ccRepository.save(cc);
     }
 
-    // public UserFitness getUserByName(String name) {
-    //     return userRepository.getUserByName(name);
-
-    // }
-    
-    // public UserFitness getUserByEmail(String email) {
-    //     return userRepository.getUserByEmail(email);
-
-    // }
-
-    // public UserFitness save(UserFitness user) {
-    //     return userRepository.save(user);
-    // }
 
 }
